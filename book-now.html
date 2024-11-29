@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Order and Payment</title>
+    <style>
+      /* Existing Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e4ded9;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+      form {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #fbb200;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #fbb200;
+      }
+      fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+      legend {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #fbb200;
+        margin-bottom: 10px;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: #fbb200;
+      }
+      input,
+      select {
+        width: 90%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1em;
+        background-color: #e4ded9;
+      }
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #fbb200;
+        box-shadow: 0 0 5px rgba(251, 178, 0, 0.5);
+      }
+      button {
+        width: 95%;
+        padding: 10px;
+        font-size: 1em;
+        background-color: #fbb200;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      button:hover {
+        background-color: #e4ded9;
+        color: #fbb200;
+        border: 1px solid #fbb200;
+      }
+      .message {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1em;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="pizzaOrderForm">
+      <h2>Order Your Pizza</h2>
+
+      <!-- Pizza Details Section -->
+      <fieldset>
+        <legend>Pizza Details</legend>
+        <label for="pizzaSize">Size</label>
+        <select id="pizzaSize" name="pizzaSize" required>
+          <option value="">Select a size</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+
+        <label for="pizzaToppings">Toppings</label>
+        <input
+          type="text"
+          id="pizzaToppings"
+          name="pizzaToppings"
+          placeholder="E.g., Pepperoni, Mushrooms"
+          required
+        />
+      </fieldset>
+
+      <!-- Card Details Section -->
+      <fieldset>
+        <legend>Card Details</legend>
+        <label for="cardHolderName">Cardholder Name</label>
+        <input
+          type="text"
+          id="cardHolderName"
+          name="cardHolderName"
+          placeholder="Enter your name"
+          required
+        />
+
+        <label for="cardNumber">Card Number</label>
+        <input
+          type="text"
+          id="cardNumber"
+          name="cardNumber"
+          placeholder="1234567890123456"
+          maxlength="16"
+          pattern="\d{16}"
+          required
+        />
+
+        <label for="cardExpirationDate">Expiration Date (MM/YY)</label>
+        <input
+          type="text"
+          id="cardExpirationDate"
+          name="cardExpirationDate"
+          placeholder="MM/YY"
+          pattern="(0[1-9]|1[0-2])/\d{2}"
+          required
+        />
+
+        <label for="cardSecurityCode">Security Code (CVV)</label>
+        <input
+          type="text"
+          id="cardSecurityCode"
+          name="cardSecurityCode"
+          placeholder="123"
+          maxlength="3"
+          pattern="\d{3}"
+          required
+        />
+      </fieldset>
+
+      <!-- Submit Button -->
+      <button type="submit">Place Order</button>
+      <div class="message" id="responseMessage"></div>
+    </form>
+
+    <script>
+      const form = document.getElementById("pizzaOrderForm");
+      const responseMessage = document.getElementById("responseMessage");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Gather form data
+        const formData = new FormData(form);
+
+        const requestData = {
+          pizzaDetails: {
+            size: formData.get("pizzaSize"),
+            toppings: formData.get("pizzaToppings"),
+          },
+          cardDetails: {
+            cardHolderName: formData.get("cardHolderName"),
+            cardNumber: formData.get("cardNumber"),
+            cardExpirationDate: formData.get("cardExpirationDate"),
+            cardSecurityCode: formData.get("cardSecurityCode"),
+          },
+        };
+
+        try {
+          const response = await fetch("http://localhost:3000/verifyCard", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(requestData),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            responseMessage.style.color = "green";
+            responseMessage.textContent = result.message;
+          } else {
+            responseMessage.style.color = "red";
+            responseMessage.textContent =
+              result.message || "Verification failed.";
+          }
+        } catch (error) {
+          responseMessage.style.color = "red";
+          responseMessage.textContent = "An error occurred. Please try again.";
+        }
+      });
+    </script>
+  </body>
+</html>
