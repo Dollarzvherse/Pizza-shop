@@ -10,12 +10,13 @@ const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-/***************************************
+/***************************************=
  * Algorithm for card number validation
  ***************************************/
 const validateCardNumber = (cardNumber) => {
   let sum = 0;
   let alternate = false;
+  console.log("Validating card number:", cardNumber);
   for (let i = cardNumber.length - 1; i >= 0; i--) {
     let n = parseInt(cardNumber[i], 10);
     if (alternate) {
@@ -25,6 +26,7 @@ const validateCardNumber = (cardNumber) => {
     sum += n;
     alternate = !alternate;
   }
+  console.log("Computed sum:", sum);
   return sum % 10 === 0;
 };
 
@@ -68,14 +70,21 @@ app.post("/verifyCard", async (req, res) => {
       return res.status(400).json({ message: "Missing required data" });
     }
 
-    const { size, toppings } = pizzaDetails;
+    // Updated pizzaDetails validation
+    const { amount, deliveryLocation } = pizzaDetails;
+
+    if (!amount || typeof amount !== "number" || amount <= 0) {
+      return res.status(400).json({ message: "Invalid pizza amount" });
+    }
+
+    if (!deliveryLocation || typeof deliveryLocation !== "string") {
+      return res
+        .status(400)
+        .json({ message: "Invalid or missing delivery location" });
+    }
+
     const { cardHolderName, cardNumber, cardExpirationDate, cardSecurityCode } =
       cardDetails;
-
-    /** Validate Pizza Details */
-    if (!size || !toppings) {
-      return res.status(400).json({ message: "Invalid pizza details" });
-    }
 
     /** Validate Card Details */
     if (
@@ -87,40 +96,35 @@ app.post("/verifyCard", async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
+    /** Validate card number format (exactly 16 digits) */
+    if (!/^\d{16}$/.test(cardNumber)) {
+      return res
+        .status(400)
+        .json({ message: "Card number must be exactly 16 digits" });
+    }
+
     /** Check if card number already exists in the database */
     const existingCard = await Card.findOne({ cardNumber });
     if (existingCard) {
       return res.status(400).json({ message: "Card number already exists" });
     }
 
-    /** Validate that the card number contains only digits */
-    if (!/^\d+$/.test(cardNumber)) {
+    /** Validate security code length */
+    if (cardSecurityCode.length !== 3) {
       return res
         .status(400)
-        .json({ message: "Card number must contain only digits" });
-    }
-
-    /** Validate card number length */
-    if (cardNumber.length < 19 || cardNumber.length > 19) {
-      return res.status(400).json({ message: "Invalid card number length" });
-    }
-
-    /** Validate security code length */
-    if (cardSecurityCode.length < 3 || cardSecurityCode.length > 3) {
-      return res.status(400).json({ message: "Invalid security code length" });
+        .json({ message: "Invalid security code length (must be 3 digits)" });
     }
 
     /** Validate expiration date format (MM/YY) */
     if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(cardExpirationDate)) {
       return res
         .status(400)
-        .json({ message: "Invalid expiration date format" });
+        .json({ message: "Invalid expiration date format (MM/YY required)" });
     }
 
-    /** Split expiration date into month and year */
-    const [month, year] = cardExpirationDate.split("/");
-
     /** Check card expiration date */
+    const [month, year] = cardExpirationDate.split("/");
     const currentDate = new Date();
     const expiryDate = new Date(`20${year}`, month - 1);
 
@@ -130,9 +134,7 @@ app.post("/verifyCard", async (req, res) => {
 
     /** Validate card number using validateCardNumber Logic */
     if (!validateCardNumber(cardNumber)) {
-      return res
-        .status(400)
-        .json({ message: "Invalid card number (Card check failed)" });
+      return res.status(400).json({ message: "Invalid card number" });
     }
 
     /** Save the card to the database */
@@ -144,7 +146,13 @@ app.post("/verifyCard", async (req, res) => {
     });
     await card.save();
 
-    res.status(201).json({ message: "Card is valid and saved to database" });
+    res.status(201).json({
+      message: "Card is valid",
+      deliveryDetails: {
+        amount,
+        deliveryLocation,
+      },
+    });
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).json({ message: "Card number already exists" });
