@@ -5,7 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizza Order and Payment</title>
     <style>
-      /* Reset some default styles for better control */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        padding: 30px;
+      }
+
+      form {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border: 1px solid #e3e3e3;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        display: flex;
+        align-items: center;
+        width: 9rem;
+        height: 9rem;
+        text-align: center;
+        background-color: #f26c4f;
+        color: #fff;
+        font-size: 35px;
+        border-end-start-radius: 1rem;
+        border-start-end-radius: 1rem;
+        margin-bottom: 30px;
+        line-height: 2.5rem;
+      }
+
+      .pizzaDetails {
+        border: none;
+      }
+
+      h3 {
+        font-size: 1.25em;
+        font-weight: bolder;
+        color: #f26c4f;
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 18px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color: #fafafa;
+        transition: all 0.3s ease;
+      }
+
+      .totalPrice {
+        font-size: 1em;
+        margin-bottom: 18px;
+      }
+
+      /* Button styles */
+      button,
+      .btn {
+        width: 50%;
+        padding: 12px;
+        background-color: #f26c4f;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #f47d5a;
+        /* transform: translateY(-2px); */
+      }
+    </style>
+    <!-- <style>
+      /* Reset styles for better control */
       * {
         margin: 0;
         padding: 0;
@@ -125,16 +226,21 @@
         .totalPrice {
           font-size: 1em;
         }
-      }
-    </style>
+      } -->
+    <!-- </style> -->
   </head>
   <body>
-    <form id="pizzaOrderForm">
+    <hr id="pizzaOrderForm">
       <h2>Order Your Pizza</h2>
 
       <!-- Pizza Details Section -->
-      <fieldset>
-        <legend>Pizza Details</legend>
+      <div class="pizzaDetails">
+        <h3>Pizza Details</h3>
+        <p>
+          <strong>Pizza Name:</strong> <span id="pizzaName">Loading...</span>
+        </p>
+        <p><strong>Price per Pizza:</strong> $<span id="pizzaPrice">0</span></p>
+
         <label for="pizzaAmount">Quantity</label>
         <input
           type="number"
@@ -145,6 +251,9 @@
           required
         />
 
+        <!-- Display the total price -->
+        <div class="totalPrice" id="totalPrice">Total Price: $0</div>
+
         <label for="deliveryLocation">Delivery Location</label>
         <input
           type="text"
@@ -154,13 +263,15 @@
           required
         />
 
-        <!-- Display the total price -->
-        <div class="totalPrice" id="totalPrice">Total Price: $0</div>
-      </fieldset>
+        <input type="submit" name="Place Order" class="btn" />
+        <div class="message" id="responseMessage"></div>
+      </div>
+
+      
 
       <!-- Card Details Section -->
-      <fieldset>
-        <legend>Card Details</legend>
+      <div>
+        <h3>Card Details</h3>
         <label for="cardHolderName">Cardholder Name</label>
         <input
           type="text"
@@ -201,11 +312,7 @@
           pattern="\d{3}"
           required
         />
-      </fieldset>
-
-      <!-- Submit Button -->
-      <button type="submit">Place Order</button>
-      <div class="message" id="responseMessage"></div>
+      </div>
     </form>
 
     <script>
@@ -213,28 +320,41 @@
       const responseMessage = document.getElementById("responseMessage");
       const pizzaAmountInput = document.getElementById("pizzaAmount");
       const totalPriceDisplay = document.getElementById("totalPrice");
+      const pizzaNameDisplay = document.getElementById("pizzaName");
+      const pizzaPriceDisplay = document.getElementById("pizzaPrice");
 
-      const pizzaPrice = 5000; // Price for one pizza
+      // Retrieve pizza details from localStorage
+      const pizzaDetails = JSON.parse(localStorage.getItem("pizzaDetails"));
 
-      // Event listener to update total price whenever pizza amount changes
-      pizzaAmountInput.addEventListener("input", () => {
-        const amount = parseInt(pizzaAmountInput.value, 10);
-        if (amount > 0) {
-          const totalPrice = amount * pizzaPrice;
-          totalPriceDisplay.textContent = `Total Price: $${totalPrice}`;
-        } else {
-          totalPriceDisplay.textContent = `Total Price: $0`;
-        }
-      });
+      if (pizzaDetails) {
+        pizzaNameDisplay.textContent = pizzaDetails.name;
+        pizzaPriceDisplay.textContent = pizzaDetails.price;
+
+        // Update total price dynamically
+        pizzaAmountInput.addEventListener("input", () => {
+          const amount = parseInt(pizzaAmountInput.value, 10);
+          if (amount > 0) {
+            const totalPrice = amount * pizzaDetails.price;
+            totalPriceDisplay.textContent = `Total Price: $${totalPrice}`;
+          } else {
+            totalPriceDisplay.textContent = `Total Price: $0`;
+          }
+        });
+      } else {
+        pizzaNameDisplay.textContent = "Unknown";
+        pizzaPriceDisplay.textContent = "0";
+        totalPriceDisplay.textContent = "Total Price: $0";
+      }
 
       form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Prevent form from submitting normally
+        event.preventDefault();
 
-        // Gather form data
         const formData = new FormData(form);
 
         const requestData = {
           pizzaDetails: {
+            name: pizzaDetails?.name || "Unknown",
+            price: pizzaDetails?.price || 0,
             amount: parseInt(formData.get("pizzaAmount"), 10),
             deliveryLocation: formData.get("deliveryLocation"),
           },

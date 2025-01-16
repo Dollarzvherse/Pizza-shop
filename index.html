@@ -157,7 +157,7 @@
                   typesetting industry.
                 </p>
               </div>
-              <a href="shop-list.html" class="btn-ct btn-large"
+              <a href="shoplist.html" class="btn-ct btn-large"
                 ><img src="images/cart-icon-white.png" alt="Cart Icon" /> Order
                 Now</a
               >
@@ -216,7 +216,7 @@
       <!-- End Of Daily Fresh -->
 
       <!-- Start Of Our Menu -->
-      <section class="our-menu position-r mb-150">
+      <!-- <section class="our-menu position-r mb-150">
         <div class="our-menu-vacter wow fadeInRight">
           <img src="images/tamato.png" alt="Vacter Image" />
         </div>
@@ -536,7 +536,104 @@
             </div>
           </div>
         </div>
+      </section> -->
+
+      <section class="our-menu position-r mb-150">
+        <div class="container">
+          <div class="section-heading">
+            <h5 class="sub-title">Popular Dishes</h5>
+            <h2>Browse Our Menu</h2>
+          </div>
+          <div class="our-menu-content">
+            <div class="menu-slider owl-carousel">
+              <!-- Example Menu Item -->
+              <div class="menu-item-box">
+                <div class="menu-item-img">
+                  <a href="book-now.html"
+                    ><img src="images/pizza-4.png" alt="Cheese Pizza"
+                  /></a>
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-head">
+                    <h5><a href="book-now.html">Cheese Pizza</a></h5>
+                    <span class="menu-item-price">$25.00</span>
+                  </div>
+                  <div class="item-rating">
+                    <ul>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                  <p>
+                    Delicious cheese pizza topped with mozzarella and herbs.
+                  </p>
+                  <a
+                    href="book-now.html"
+                    class="btn-ct btn-small"
+                    data-name="Cheese Pizza"
+                    data-price="25"
+                    onclick="setPizzaDetails(event)"
+                    ><img src="images/cart-icon-white.png" alt="Cart Icon" />
+                    Order Now</a
+                  >
+                </div>
+              </div>
+
+              <div class="menu-item-box">
+                <div class="menu-item-img">
+                  <a href="book-now.html"
+                    ><img src="images/pizza-4.png" alt="Cheese Pizza"
+                  /></a>
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-head">
+                    <h5><a href="book-now.html">Pepperoni Pizza</a></h5>
+                    <span class="menu-item-price">$45.00</span>
+                  </div>
+                  <div class="item-rating">
+                    <ul>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                  <p>
+                    Delicious cheese pizza topped with mozzarella and herbs.
+                  </p>
+                  <a
+                    href="book-now.html"
+                    class="btn-ct btn-small"
+                    data-name="Pepperoni Pizza"
+                    data-price="45"
+                    onclick="setPizzaDetails(event)"
+                    ><img src="images/cart-icon-white.png" alt="Cart Icon" />
+                    Order Now</a
+                  >
+                </div>
+              </div>
+              <!-- Repeat menu items as necessary -->
+            </div>
+          </div>
+        </div>
       </section>
+
+      <script>
+        // Save selected pizza details to localStorage
+        function setPizzaDetails(event) {
+          event.preventDefault();
+          const button = event.target.closest("a");
+          const name = button.dataset.name;
+          const price = button.dataset.price;
+          localStorage.setItem("pizzaDetails", JSON.stringify({ name, price }));
+          window.location.href = button.href; // Navigate to ordering page
+        }
+      </script>
+
       <!-- End Of Our Menu -->
 
       <!-- Start Of Our Story -->
