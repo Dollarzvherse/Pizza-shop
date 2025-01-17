@@ -13,8 +13,9 @@
     <link type="image/x-icon" href="images/favicon.png" rel="icon" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -152,15 +153,9 @@
                 Handmade, With an Extra Pinch of <span>Love</span>
               </h1>
               <div class="home-banner-desc">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
+                <p>Authentic flavors, lovingly prepared.</p>
               </div>
-              <a href="shop-list.html" class="btn-ct btn-large"
-                ><img src="images/cart-icon-white.png" alt="Cart Icon" /> Order
-                Now</a
-              >
+              <a href="shop-list.html" class="btn-ct btn-large"> Order Now</a>
             </div>
           </div>
           <div class="col-xl-7 col-lg-6 col-md-6 home-right-img">
@@ -202,10 +197,7 @@
           <div class="fresh-content wow fadeInUp">
             <h3 class="title">Daily fresh and always tasty</h3>
             <div class="fresh-des">
-              <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority haved
-              </p>
+              <p>"Fresh ingredients, bold flavors, pure satisfaction."</p>
             </div>
           </div>
         </div>
@@ -216,321 +208,183 @@
       <!-- End Of Daily Fresh -->
 
       <!-- Start Of Our Menu -->
-      <section class="our-menu position-r mb-150">
-        <div class="our-menu-vacter wow fadeInRight">
-          <img src="images/tamato.png" alt="Vacter Image" />
+      <section class="relative mb-36">
+        <div class="absolute right-0 top-0">
+          <img
+            src="images/tamato.png"
+            alt="Vacter Image"
+            class="animate-fadeInRight"
+          />
         </div>
-        <div class="container">
-          <div class="section-heading wow fadeInLeft">
-            <h5 class="sub-title">Popular Dishes</h5>
-            <h2>Browse Our Menu</h2>
+        <div class="container mx-auto px-4">
+          <div class="text-center animate-fadeInLeft">
+            <h5 class="text-lg font-semibold text-gray-500">Popular Dishes</h5>
+            <h2 class="text-4xl font-bold text-gray-900">Browse Our Menu</h2>
           </div>
         </div>
-        <div class="wow fadeInLeft">
-          <div class="our-menu-content right-padding">
-            <div class="menu-slider owl-carousel">
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-4.png" alt="Menu Image"
-                  /></a>
+        <div class="mt-10 animate-fadeInLeft">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
+          >
+            <!-- Menu Item 1 -->
+            <div class="bg-white border rounded-lg shadow-lg p-4">
+              <div class="overflow-hidden rounded-t-lg">
+                <a href="book-now.html">
+                  <img
+                    src="images/pizza-4.png"
+                    alt="Menu Image"
+                    class="w-auto h-auto"
+                  />
+                </a>
+              </div>
+              <div class="mt-4">
+                <div class="flex justify-between items-center">
+                  <h5 class="text-lg font-bold text-gray-900">
+                    <a href="book-now.html">Cheese Pizza</a>
+                  </h5>
+                  <span class="menu-items-price">$25.00</span>
                 </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Cheese pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$25.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
+                <div class="flex items-center mt-2">
+                  <ul class="flex space-x-1 text-yellow-500">
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                  </ul>
+                </div>
+                <p class="menu-items-des mt-2">
+                  "A classic favorite with a perfect blend of melted mozzarella,
+                  cheddar, and parmesan"
+                </p>
+                <div class="mt-4">
+                  <a
+                    href="book-now.html"
+                    class="inline-block btn-ct btn-small text-white px-4 py-2 rounded-lg"
+                    >Order Now
+                  </a>
                 </div>
               </div>
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-1.png" alt="Menu Image"
-                  /></a>
+            </div>
+            <!-- Menu Item 2 -->
+            <div class="bg-white border rounded-lg shadow-lg p-4">
+              <div class="overflow-hidden rounded-t-lg">
+                <a href="book-now.html">
+                  <img
+                    src="images/pizza-1.png"
+                    alt="Menu Image"
+                    class="w-auto h-auto justify-center"
+                  />
+                </a>
+              </div>
+              <div class="mt-4">
+                <div class="flex justify-between items-center">
+                  <h5 class="text-lg font-bold text-gray-900">
+                    <a href="book-now.html">Shrimp Pizza</a>
+                  </h5>
+                  <span class="menu-items-price">$35.00</span>
                 </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Shrimp pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$35.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
+                <div class="flex items-center mt-2">
+                  <ul class="flex space-x-1 text-yellow-500">
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img
+                        src="images/Gold Half Star.png"
+                        alt=""
+                        class="w-4 h-4"
+                      />
+                    </li>
+                    <li>
+                      <img
+                        src="images/Gold Half Star.png"
+                        alt=""
+                        class="w-4 h-4"
+                      />
+                    </li>
+                  </ul>
+                </div>
+                <p class="menu-items-des mt-2">
+                  "A delicious combination of fresh Shrimp, Vibrant bell
+                  peppers, and olives, all on a crispy crust "
+                </p>
+                <div class="mt-4">
+                  <a
+                    href="book-now.html"
+                    class="inline-block btn-ct btn-small text-white px-4 py-2 rounded-lg"
+                    >Order Now
+                  </a>
                 </div>
               </div>
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-2.png" alt="Menu Image"
-                  /></a>
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Seafood pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$65.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
-                </div>
+            </div>
+            <!-- Menu Item 3 -->
+            <div class="bg-white border rounded-lg shadow-lg p-4">
+              <div class="overflow-hidden rounded-t-lg">
+                <a href="book-now.html">
+                  <img
+                    src="images/pizza-2.png"
+                    alt="Menu Image"
+                    class="w-auto h-auto"
+                  />
+                </a>
               </div>
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-3.png" alt="Menu Image"
-                  /></a>
+              <div class="mt-4">
+                <div class="flex justify-between items-center">
+                  <h5 class="text-lg font-bold text-gray-900">
+                    <a href="book-now.html">Seafood Pizza</a>
+                  </h5>
+                  <span class="menu-items-price">$65.00</span>
                 </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Cheese pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$45.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
+                <div class="flex items-center mt-2">
+                  <ul class="flex space-x-1 text-yellow-500">
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img src="images/Star.png" alt="" class="w-4 h-4" />
+                    </li>
+                    <li>
+                      <img
+                        src="images/Gold Half Star.png"
+                        alt=""
+                        class="w-4 h-4"
+                      />
+                    </li>
+                  </ul>
                 </div>
-              </div>
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-4.png" alt="Menu Image"
-                  /></a>
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Cheese pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$25.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-1.png" alt="Menu Image"
-                  /></a>
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Shrimp pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$35.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-2.png" alt="Menu Image"
-                  /></a>
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Seafood pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$65.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="menu-item-box rotate-img">
-                <div class="menu-item-img">
-                  <a href="book-now.html"
-                    ><img src="images/pizza-3.png" alt="Menu Image"
-                  /></a>
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-head">
-                    <div class="menu-item-title">
-                      <h5><a href="book-now.html">Cheese pizza</a></h5>
-                    </div>
-                    <div class="menu-item-price">
-                      <span>$45.00</span>
-                    </div>
-                  </div>
-                  <div class="item-rating">
-                    <ul>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    </ul>
-                  </div>
-                  <div class="menu-item-des">
-                    <p>
-                      All the Lorem Ipsum generators on to Internet tend to
-                      repeat
-                    </p>
-                  </div>
-                  <div class="menu-item-order">
-                    <a href="book-now.html" class="btn-ct btn-small"
-                      ><img src="images/cart-icon-white.png" alt="Cart Icon" />
-                      Order Now</a
-                    >
-                  </div>
+                <p class="menu-items-des mt-2">
+                  "A flavorful medley of fresh seafood, including shrimp, squid,
+                  and mussels, atop a crispy crust"
+                </p>
+                <div class="mt-4">
+                  <a
+                    href="book-now.html"
+                    class="inline-block btn-ct btn-small text-white px-4 py-2 rounded-lg"
+                    >Order Now
+                  </a>
                 </div>
               </div>
             </div>
@@ -562,13 +416,14 @@
               <div class="story-content md-mb-40">
                 <div class="our-story-desc">
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
+                    The Pizzon Has Excellent Of Quality Food to our customers.
+                    From our humble beginnings, we've been committed to using
+                    the freshest ingredients and traditional recipes to craft
+                    delicious, unforgettable meals. Over the years, our passion
+                    for excellence has earned us a reputation for providing a
+                    dining experience thats's second to none. Whether you're
+                    enjoying a quick lunch or a family dinner, Pizzon promises a
+                    taste of quality in every bite.
                   </p>
                 </div>
                 <a href="about.html" class="btn-ct right-arrow"
@@ -651,209 +506,142 @@
       <!-- End Of Our Strength -->
 
       <!-- Start Of Feedback Part -->
-      <section class="feeddback-part position-r mb-150 overflow-h">
-        <div class="feeddback-vacter wow fadeInLeft animation-delay-5">
-          <img src="images/leaf.png" alt="Vacter Image" />
+      <section class="relative mb-8 overflow-hidden">
+        <div class="absolute left-0">
+          <img
+            src="images/leaf.png"
+            alt="Vacter Image"
+            class="animate-fadeInLeft"
+          />
         </div>
         <div class="container">
           <div class="section-heading wow fadeInUp">
             <h5 class="sub-title">Customer Feedback</h5>
             <h2>Client Testimonials</h2>
           </div>
-
-          <div class="testimonials-slider owl-carousel wow fadeInUp">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-1.jpg" alt="Johan Doe" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Johan Doe</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
+          <div class="mt-10 animate-fadeInUp">
+            <div class="flex justify-evenly space-x-4 overflow-x-auto">
+              <!-- Testimonial Item 1 -->
+              <div class="bg-white border rounded-lg shadow-lg p-4 w-80">
+                <div class="overflow-hidden rounded-full w-24 h-24 mx-auto">
+                  <img
+                    src="images/client-1.jpg"
+                    alt="Johan Doe"
+                    class="object-cover w-full h-full"
+                  />
+                </div>
+                <div class="mt-4 text-center">
+                  <div class="text-lg font-bold text-gray-900">Johan Doe</div>
+                  <p class="mt-2 text-gray-600">
+                    “Amazing service and even better pizza! Every bite is a
+                    burst of flavor. i can't get enough of their seafood pizza”
                   </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <div class="mt-4">
+                    <ul class="flex justify-center space-x-1 text-yellow-500">
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-2.jpg" alt="Alex Saanu" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Alex Saanu</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
+              <!-- Testimonial Item 2 -->
+              <div class="bg-white border rounded-lg shadow-lg p-4 w-80">
+                <div class="overflow-hidden rounded-full w-24 h-24 mx-auto">
+                  <img
+                    src="images/client-2.jpg"
+                    alt="Alex Saanu"
+                    class="object-cover w-full h-full"
+                  />
+                </div>
+                <div class="mt-4 text-center">
+                  <div class="text-lg font-bold text-gray-900">Alex Saanu</div>
+                  <p class="mt-2 text-gray-600">
+                    “I've tried many pizzas, but this place truly stands out.
+                    The crust is perfectly cripsy, and the toppings are
+                    generous.”
                   </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <div class="mt-4">
+                    <ul class="flex justify-center space-x-1 text-yellow-500">
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-3.jpg" alt="Jona Leoner" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Jona Leoner</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
+              <!-- Testimonial Item 3 -->
+              <div class="bg-white border rounded-lg shadow-lg p-4 w-80">
+                <div class="overflow-hidden rounded-full w-24 h-24 mx-auto">
+                  <img
+                    src="images/client-3.jpg"
+                    alt="Jona Leoner"
+                    class="object-cover w-full h-full"
+                  />
+                </div>
+                <div class="mt-4 text-center">
+                  <div class="text-lg font-bold text-gray-900">Jona Leoner</div>
+                  <p class="mt-2 text-gray-600">
+                    “The pizza here is absolutely fantastic! The flavors are
+                    rich, and the ingredients are always fresh. Highly
+                    recommeded!”
                   </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-4.jpg" alt="Takar Bowa" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Takar Bowa</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <div class="mt-4">
+                    <ul class="flex justify-center space-x-1 text-yellow-500">
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                      <li>
+                        <img src="/images/Star.png" alt="" class="w-4 h-4" />
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-1.jpg" alt="Johan Doe" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Johan Doe</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-2.jpg" alt="Alex Saanu" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Alex Saanu</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-3.jpg" alt="Jona Leoner" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Jona Leoner</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="images/client-4.jpg" alt="Takar Bowa" />
-              </div>
-              <div class="client-info">
-                <div class="client-name">Takar Bowa</div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has
-                    survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
-                </div>
-              </div>
+              <!-- Additional testimonials can be added here following the same structure -->
             </div>
           </div>
         </div>
       </section>
+
       <!-- End Of Feedback Part -->
 
       <!-- Start Of Reservation Part -->
       <section
-        class="reservation-part left-padding mb-150 position-r overflow-h"
+        class="reservation-part left-padding mt-20 mb-150 position-r overflow-h"
       >
         <div class="row align-items-center">
           <div class="col-xl-5 col-lg-6 col-md-12">
@@ -903,28 +691,6 @@
                       name="text"
                       class="form-control"
                       placeholder="Time*"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      name="text"
-                      class="form-control"
-                      placeholder="Date*"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      name="text"
-                      class="form-control"
-                      placeholder="Guest*"
                       required
                     />
                   </div>
@@ -1082,7 +848,7 @@
                 <li><a href="#">Ham & Cheese</a></li>
               </ul>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 footer-box wow fadeInUp">
+            <!-- <div class="col-xl-3 col-lg-6 col-md-6 footer-box wow fadeInUp">
               <h6 class="footer-title text-uppercase">Others</h6>
               <ul class="footer-menu">
                 <li><a href="checkout.html">Checkout</a></li>
@@ -1091,29 +857,19 @@
                 <li><a href="#">Locations</a></li>
                 <li><a href="#">Legal</a></li>
               </ul>
-            </div>
+            </div> -->
             <div class="col-xl-3 col-lg-6 col-md-6 footer-box wow fadeInUp">
               <h6 class="footer-title text-uppercase">Social Media</h6>
               <ul class="footer-social">
                 <li>
-                  <a href="#" class="facebook"
-                    ><i class="fa fa-facebook" aria-hidden="true"></i
-                  ></a>
+                  <img src="/images/facebook.svg" alt="" class="w-8 h-8" />
+                </li>
+
+                <li>
+                  <img src="/images/instagram.svg" alt="" class="w-8 h-8" />
                 </li>
                 <li>
-                  <a href="#" class="pinterest"
-                    ><i class="fa fa-pinterest-p" aria-hidden="true"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="#" class="twitter"
-                    ><i class="fa fa-twitter" aria-hidden="true"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="#" class="instagram"
-                    ><i class="fa fa-instagram" aria-hidden="true"></i
-                  ></a>
+                  <img src="/images/twitter.svg" alt="" class="w-8 h-8" />
                 </li>
               </ul>
               <div class="footer-offers-text">
@@ -1133,7 +889,7 @@
                     <li><a href="#">Terms & Conditions</a></li>
                   </ul>
                 </div>
-                <div class="col-xl-4 col-lg-3 col-md-12 wow fadeInRight">
+                <!-- <div class="col-xl-4 col-lg-3 col-md-12 wow fadeInRight">
                   <ul class="app-list">
                     <li>
                       <a href="#"
@@ -1146,7 +902,7 @@
                       /></a>
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
