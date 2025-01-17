@@ -725,3 +725,286 @@ node_modules
         </div>
       </div>
     </section>
+
+
+
+
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Order and Payment</title>
+    <style>
+      /* Reset some default styles for better control */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        padding: 30px;
+      }
+
+      /* Main form container */
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border: 1px solid #e3e3e3;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: #2a2a2a;
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+
+      /* Section and input styling */
+      fieldset {
+        border: none;
+        margin-bottom: 25px;
+      }
+
+      legend {
+        font-size: 1.25em;
+        font-weight: 600;
+        color: #f26c4f;
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 18px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color: #fafafa;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #f26c4f;
+        box-shadow: 0 0 5px rgba(242, 108, 79, 0.3);
+      }
+
+      .totalPrice {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #f26c4f;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .message {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      /* Button styles */
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #f26c4f;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #f47d5a;
+        transform: translateY(-2px);
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 600px) {
+        form {
+          padding: 20px;
+        }
+
+        h2 {
+          font-size: 24px;
+        }
+
+        button {
+          font-size: 16px;
+        }
+
+        .totalPrice {
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form id="pizzaOrderForm">
+      <h2>Order Your Pizza</h2>
+
+      <!-- Pizza Details Section -->
+      <fieldset>
+        <legend>Pizza Details</legend>
+        <label for="pizzaAmount">Quantity</label>
+        <input
+          type="number"
+          id="pizzaAmount"
+          name="pizzaAmount"
+          placeholder="Enter number of pizzas"
+          min="1"
+          required
+        />
+
+        <label for="deliveryLocation">Delivery Location</label>
+        <input
+          type="text"
+          id="deliveryLocation"
+          name="deliveryLocation"
+          placeholder="Enter delivery address"
+          required
+        />
+
+        <!-- Display the total price -->
+        <div class="totalPrice" id="totalPrice">Total Price: $0</div>
+      </fieldset>
+
+      <!-- Card Details Section -->
+      <fieldset>
+        <legend>Card Details</legend>
+        <label for="cardHolderName">Cardholder Name</label>
+        <input
+          type="text"
+          id="cardHolderName"
+          name="cardHolderName"
+          placeholder="Enter your name"
+          required
+        />
+
+        <label for="cardNumber">Card Number</label>
+        <input
+          type="text"
+          id="cardNumber"
+          name="cardNumber"
+          placeholder="1234567890123456"
+          maxlength="16"
+          pattern="\d{16}"
+          required
+        />
+
+        <label for="cardExpirationDate">Expiration Date (MM/YY)</label>
+        <input
+          type="text"
+          id="cardExpirationDate"
+          name="cardExpirationDate"
+          placeholder="MM/YY"
+          pattern="(0[1-9]|1[0-2])/\d{2}"
+          required
+        />
+
+        <label for="cardSecurityCode">Security Code (CVV)</label>
+        <input
+          type="text"
+          id="cardSecurityCode"
+          name="cardSecurityCode"
+          placeholder="123"
+          maxlength="3"
+          pattern="\d{3}"
+          required
+        />
+      </fieldset>
+
+      <!-- Submit Button -->
+      <button type="submit">Place Order</button>
+      <div class="message" id="responseMessage"></div>
+    </form>
+
+    <script>
+      const form = document.getElementById("pizzaOrderForm");
+      const responseMessage = document.getElementById("responseMessage");
+      const pizzaAmountInput = document.getElementById("pizzaAmount");
+      const totalPriceDisplay = document.getElementById("totalPrice");
+
+      const pizzaPrice = 5000; // Price for one pizza
+
+      // Event listener to update total price whenever pizza amount changes
+      pizzaAmountInput.addEventListener("input", () => {
+        const amount = parseInt(pizzaAmountInput.value, 10);
+        if (amount > 0) {
+          const totalPrice = amount * pizzaPrice;
+          totalPriceDisplay.textContent = `Total Price: $${totalPrice}`;
+        } else {
+          totalPriceDisplay.textContent = `Total Price: $0`;
+        }
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Gather form data
+        const formData = new FormData(form);
+
+        const requestData = {
+          pizzaDetails: {
+            amount: parseInt(formData.get("pizzaAmount"), 10),
+            deliveryLocation: formData.get("deliveryLocation"),
+          },
+          cardDetails: {
+            cardHolderName: formData.get("cardHolderName"),
+            cardNumber: formData.get("cardNumber"),
+            cardExpirationDate: formData.get("cardExpirationDate"),
+            cardSecurityCode: formData.get("cardSecurityCode"),
+          },
+        };
+
+        try {
+          const response = await fetch("http://localhost:3000/verifyCard", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(requestData),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            responseMessage.style.color = "green";
+            responseMessage.textContent = result.message;
+          } else {
+            responseMessage.style.color = "red";
+            responseMessage.textContent =
+              result.message || "Verification failed.";
+          }
+        } catch (error) {
+          responseMessage.style.color = "red";
+          responseMessage.textContent = "An error occurred. Please try again.";
+        }
+      });
+    </script>
+  </body>
+</html>
