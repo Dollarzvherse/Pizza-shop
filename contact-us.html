@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs -->
+    <title>Pizzon</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- CSS -->
+    <link type="image/x-icon" href="images/favicon.png" rel="icon" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PVTN7BBB");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PVTN7BBB"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header Start -->
+    <header>
+      <div class="header-vacter">
+        <img src="images/header-img.png" alt="Vacter Image" />
+      </div>
+      <div class="container-big">
+        <div class="header-inner">
+          <div class="row align-items-center">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-5">
+              <div class="header-logo">
+                <a href="index.html"
+                  ><img src="images/logo.png" alt="Brand Logo"
+                /></a>
+              </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-9 col-7">
+              <div class="main-menu">
+                <div class="menu-toggle">
+                  <span></span>
+                </div>
+                <div class="menu">
+                  <div class="sidemenu-header">
+                    <div class="sidemenu-logo">
+                      <img src="images/logo.png" alt="Brand Logo" />
+                    </div>
+                    <div class="sidemenu-close">
+                      <span></span>
+                    </div>
+                  </div>
+                  <ul>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li>
+                      <span class="opener"></span>
+                      <a href="shop-list.html">Shop</a>
+                    </li>
+                    <li>
+                      <span class="opener"></span>
+                      <a href="about.html">About Us</a>
+                    </li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="icon-menu">
+                  <ul>
+                    <li class="search">
+                      <a href="javascript:void(0)">
+                        <img
+                          src="images/search-icon.png"
+                          class="normal-icon"
+                          alt="Search Icon"
+                        />
+                        <img
+                          src="images/search-icon-2.png"
+                          class="hover-icon"
+                          alt="Search Icon"
+                        />
+                      </a>
+                    </li>
+                    <li class="cart-slide position-r">
+                      <a href="javascript:void(0)">
+                        <img
+                          src="images/cart-icon.png"
+                          class="normal-icon"
+                          alt="Cart Icon"
+                        />
+                        <img
+                          src="images/cart-icon-2.png"
+                          class="hover-icon"
+                          alt="Cart Icon"
+                        />
+                        <span class="cart-count">0</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Contact Us Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800">Contact Us</h2>
+          <p class="text-lg text-gray-600 mt-4">
+            We'd love to hear from you! Reach out to us for any inquiries or
+            feedback.
+          </p>
+        </div>
+        <div class="flex flex-wrap -mx-4">
+          <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                Get in Touch
+              </h3>
+              <form action="#" method="POST" class="space-y-4">
+                <div>
+                  <label for="name" class="block text-gray-600">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1 text-gray-700"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block text-gray-600">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1 text-gray-700"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="message" class="block text-gray-600"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 mt-1 text-gray-700"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <div>
+                  <button type="submit" class="btn-ct btn-small">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2 px-4">
+            <div class="space-y-8">
+              <div class="flex items-center">
+                <i class="fa fa-map-marker text-2xl text-gray-800 mr-4"></i>
+                <div>
+                  <p class="text-lg text-gray-800 font-bold">Our Location</p>
+                  <p class="text-gray-600">
+                    123 Pizza Street, Food City, FC 12345
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <i class="fa fa-phone text-2xl text-gray-800 mr-4"></i>
+                <div>
+                  <p class="text-lg text-gray-800 font-bold">Call Us</p>
+                  <p class="text-gray-600">+1 234 567 890</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <i class="fa fa-envelope text-2xl text-gray-800 mr-4"></i>
+                <div>
+                  <p class="text-lg text-gray-800 font-bold">Email Us</p>
+                  <p class="text-gray-600">info@pizzon.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <!-- Start Of Footer -->
+  <footer>
+    <div class="footer ptb-100 bg-yellow position-r overflow-h">
+      <div class="footer-pattern-1 wow fadeInLeft animation-delay-5">
+        <img src="images/logo.png" alt="logo" />
+      </div>
+      <div class="footer-pattern-2 wow fadeInRight animation-delay-5">
+        <img src="images/footer-pattern.png" alt="footer-pattern" />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-3 col-lg-6 col-md-6 footer-box wow fadeInUp">
+            <h6 class="footer-title text-uppercase">Information</h6>
+            <ul class="footer-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="blog-left.html">Blog</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="our-menu.html">Menu</a></li>
+              <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-md-6 footer-box wow fadeInUp">
+            <h6 class="footer-title text-uppercase">Top Items</h6>
+            <ul class="footer-menu">
+              <li><a href="#">Pepperoni</a></li>
+              <li><a href="#">Swiss Mushroom</a></li>
+              <li><a href="#">Barbeque Chicken</a></li>
+              <li><a href="#">Vegetarian</a></li>
+              <li><a href="#">Ham & Cheese</a></li>
+            </ul>
+          </div>
+          <!-- <div class="col-xl-3 col-lg-6 col-md-6 footer-box wow fadeInUp">
+            <h6 class="footer-title text-uppercase">Others</h6>
+            <ul class="footer-menu">
+              <li><a href="checkout.html">Checkout</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="#">Product</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">Legal</a></li>
+            </ul>
+          </div> -->
+          <div class="col-xl-3 col-lg-6 col-md-6 footer-box wow fadeInUp">
+            <h6 class="footer-title text-uppercase">Social Media</h6>
+            <ul class="footer-social">
+              <li>
+                <img src="/images/facebook.svg" alt="" class="w-8 h-8" />
+              </li>
+
+              <li>
+                <img src="/images/instagram.svg" alt="" class="w-8 h-8" />
+              </li>
+              <li>
+                <img src="/images/twitter.svg" alt="" class="w-8 h-8" />
+              </li>
+            </ul>
+            <div class="footer-offers-text">
+              <p>Signup and get exclusive offers and coupon codes</p>
+            </div>
+            <div class="footer-sign-up">
+              <a href="#" class="btn-ct btn-small">Sign Up</a>
+            </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 terms-menu">
+            <div class="row align-items-center">
+              <div class="col-xl-8 col-lg-9 col-md-12 wow fadeInLeft">
+                <ul class="policy-menu">
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Refund Policy</a></li>
+                  <li><a href="#">Cookie Policy</a></li>
+                  <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+              </div>
+              <!-- <div class="col-xl-4 col-lg-3 col-md-12 wow fadeInRight">
+                <ul class="app-list">
+                  <li>
+                    <a href="#"
+                      ><img src="images/google-play.png" alt="Google Play"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img src="images/app-stor.png" alt="App Stor"
+                    /></a>
+                  </li>
+                </ul>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        <div class="text-center">
+          <p>&#169; 2023 Pizzon. All Rights Reserved by PIZZON Foods</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Of Footer -->
+</html>
